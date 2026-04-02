@@ -40,8 +40,18 @@
       </router-link>
     </nav>
 
+    <!-- Logout -->
+    <div class="px-3 py-3 border-t border-white/10">
+      <button @click="handleLogout" class="flex items-center gap-3 w-full px-4 py-2.5 rounded-lg text-sm text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-all duration-200">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>
+        <span>Keluar</span>
+      </button>
+    </div>
+
     <!-- Footer -->
-    <div class="px-4 py-3 border-t border-white/10 text-xs text-brand-sidebar-text/50 text-center">
+    <div class="px-4 py-2 border-t border-white/10 text-xs text-brand-sidebar-text/50 text-center">
       BK System v1.0
     </div>
   </aside>
@@ -49,12 +59,32 @@
 
 <script setup>
 import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 import { useAuthStore } from '../../stores/auth'
+import Swal from 'sweetalert2'
 
 defineProps({ open: Boolean })
 defineEmits(['close'])
 
+const router = useRouter()
 const auth = useAuthStore()
+
+async function handleLogout() {
+  const confirm = await Swal.fire({
+    title: 'Keluar?',
+    text: 'Anda yakin ingin keluar?',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#ef4444',
+    cancelButtonColor: '#64748b',
+    confirmButtonText: 'Ya, Keluar',
+    cancelButtonText: 'Batal'
+  })
+  if (confirm.isConfirmed) {
+    auth.logout()
+    router.push('/login')
+  }
+}
 
 const menuItems = computed(() => {
   const items = [

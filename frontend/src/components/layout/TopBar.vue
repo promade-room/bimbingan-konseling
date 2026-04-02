@@ -11,13 +11,18 @@
         <p class="text-xs text-brand-muted">{{ currentDate }}</p>
       </div>
     </div>
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-3">
       <div class="text-right hidden sm:block">
         <p class="text-sm font-medium text-brand-text">{{ auth.user?.nama }}</p>
         <p class="text-xs text-brand-muted capitalize">{{ auth.user?.role?.replace('_', ' ') }}</p>
       </div>
       <button @click="router.push('/profil')" class="w-9 h-9 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary font-semibold text-sm hover:bg-brand-primary/20 transition-colors">
         {{ initials }}
+      </button>
+      <button @click="handleLogout" class="w-9 h-9 rounded-full flex items-center justify-center text-brand-muted hover:text-brand-danger hover:bg-red-50 transition-colors sm:hidden" title="Keluar">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>
       </button>
     </div>
   </header>
@@ -27,12 +32,30 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '../../stores/auth'
+import Swal from 'sweetalert2'
 
 defineEmits(['toggle-sidebar'])
 
 const route = useRoute()
 const router = useRouter()
 const auth = useAuthStore()
+
+async function handleLogout() {
+  const confirm = await Swal.fire({
+    title: 'Keluar?',
+    text: 'Anda yakin ingin keluar?',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#ef4444',
+    cancelButtonColor: '#64748b',
+    confirmButtonText: 'Ya, Keluar',
+    cancelButtonText: 'Batal'
+  })
+  if (confirm.isConfirmed) {
+    auth.logout()
+    router.push('/login')
+  }
+}
 
 const routeName = computed(() => route.name || 'Dashboard')
 const initials = computed(() => {
