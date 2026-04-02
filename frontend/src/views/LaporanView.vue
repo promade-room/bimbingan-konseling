@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="font-heading text-xl text-cyber-primary tracking-wider mb-6">LAPORAN</h1>
+    <h1 class="font-semibold text-xl text-brand-primary mb-6">LAPORAN</h1>
 
     <!-- Tab -->
     <div class="flex gap-2 mb-6">
@@ -53,9 +53,9 @@
     <!-- Report Konseling -->
     <div v-if="activeTab === 'konseling'" class="cyber-card print:bg-white print:text-black">
       <div class="text-center mb-6">
-        <h2 class="font-heading text-lg print:text-black">LAPORAN KONSELING</h2>
-        <p class="text-sm text-cyber-muted print:text-gray-600">Bimbingan Konseling - MTs Muhammadiyah 1 Palembang</p>
-        <p v-if="tanggalDari || tanggalSampai" class="text-xs text-cyber-muted print:text-gray-600">
+        <h2 class="font-semibold text-lg print:text-black">LAPORAN KONSELING</h2>
+        <p class="text-sm text-brand-muted print:text-gray-600">Bimbingan Konseling - MTs Muhammadiyah 1 Palembang</p>
+        <p v-if="tanggalDari || tanggalSampai" class="text-xs text-brand-muted print:text-gray-600">
           Periode: {{ tanggalDari || '...' }} s/d {{ tanggalSampai || '...' }}
         </p>
       </div>
@@ -89,16 +89,16 @@
           </tbody>
         </table>
       </div>
-      <p v-if="reportData.length === 0" class="text-center text-cyber-muted py-8">Tidak ada data</p>
-      <p class="text-sm text-cyber-muted mt-4 print:text-gray-600">Total: {{ reportData.length }} catatan</p>
+      <p v-if="reportData.length === 0" class="text-center text-brand-muted py-8">Tidak ada data</p>
+      <p class="text-sm text-brand-muted mt-4 print:text-gray-600">Total: {{ reportData.length }} catatan</p>
     </div>
 
     <!-- Report Pelanggaran -->
     <div v-if="activeTab === 'pelanggaran'" class="cyber-card print:bg-white print:text-black">
       <div class="text-center mb-6">
-        <h2 class="font-heading text-lg print:text-black">LAPORAN PELANGGARAN</h2>
-        <p class="text-sm text-cyber-muted print:text-gray-600">Bimbingan Konseling - MTs Muhammadiyah 1 Palembang</p>
-        <p v-if="tanggalDari || tanggalSampai" class="text-xs text-cyber-muted print:text-gray-600">
+        <h2 class="font-semibold text-lg print:text-black">LAPORAN PELANGGARAN</h2>
+        <p class="text-sm text-brand-muted print:text-gray-600">Bimbingan Konseling - MTs Muhammadiyah 1 Palembang</p>
+        <p v-if="tanggalDari || tanggalSampai" class="text-xs text-brand-muted print:text-gray-600">
           Periode: {{ tanggalDari || '...' }} s/d {{ tanggalSampai || '...' }}
         </p>
       </div>
@@ -134,8 +134,8 @@
           </tbody>
         </table>
       </div>
-      <p v-if="reportData.length === 0" class="text-center text-cyber-muted py-8">Tidak ada data</p>
-      <p class="text-sm text-cyber-muted mt-4 print:text-gray-600">Total: {{ reportData.length }} catatan</p>
+      <p v-if="reportData.length === 0" class="text-center text-brand-muted py-8">Tidak ada data</p>
+      <p class="text-sm text-brand-muted mt-4 print:text-gray-600">Total: {{ reportData.length }} catatan</p>
     </div>
   </div>
 </template>
@@ -184,5 +184,5 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.label-cyber { @apply block text-xs text-cyber-muted uppercase tracking-wider mb-1.5 font-heading; }
+.label-cyber { @apply block text-xs text-brand-muted uppercase tracking-wider mb-1.5 font-medium; }
 </style>

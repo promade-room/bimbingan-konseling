@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex items-center justify-between mb-6">
-      <h1 class="font-heading text-xl text-cyber-primary tracking-wider">SURAT MASUK</h1>
+      <h1 class="font-semibold text-xl text-brand-primary tracking-wider">SURAT MASUK</h1>
       <button v-if="canCreate" @click="openModal()" class="cyber-btn-primary">+ Tambah</button>
     </div>
 
@@ -13,13 +13,13 @@
     <div class="cyber-card">
       <DataTable :columns="columns" :data="data" :loading="loading" :pagination="pagination" @page-change="fetchData($event)">
         <template #file="{ row }">
-          <a v-if="row.file" :href="'/uploads/' + row.file" target="_blank" class="text-cyber-primary hover:underline text-xs">📄 Lihat</a>
-          <span v-else class="text-cyber-muted text-xs">-</span>
+          <a v-if="row.file" :href="'/uploads/' + row.file" target="_blank" class="text-brand-primary hover:underline text-xs">📄 Lihat</a>
+          <span v-else class="text-brand-muted text-xs">-</span>
         </template>
         <template #actions="{ row }">
           <div class="flex gap-2" v-if="canCreate">
-            <button @click="openModal(row)" class="text-cyber-primary hover:text-cyber-primary/80 text-xs">Edit</button>
-            <button v-if="auth.user?.role === 'admin'" @click="handleDelete(row)" class="text-cyber-danger hover:text-cyber-danger/80 text-xs">Hapus</button>
+            <button @click="openModal(row)" class="text-brand-primary hover:text-brand-primary/80 text-xs">Edit</button>
+            <button v-if="auth.user?.role === 'admin'" @click="handleDelete(row)" class="text-brand-danger hover:text-brand-danger/80 text-xs">Hapus</button>
           </div>
         </template>
       </DataTable>
@@ -155,5 +155,5 @@ onMounted(fetchData)
 </script>
 
 <style scoped>
-.label-cyber { @apply block text-xs text-cyber-muted uppercase tracking-wider mb-1.5 font-heading; }
+.label-cyber { @apply block text-xs text-brand-muted uppercase tracking-wider mb-1.5 font-medium; }
 </style>

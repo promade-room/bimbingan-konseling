@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h1 class="font-heading text-xl text-cyber-primary tracking-wider mb-6">PROFIL</h1>
+    <h1 class="font-semibold text-xl text-brand-primary tracking-wider mb-6">PROFIL</h1>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
       <!-- Profile Info -->
       <div class="cyber-card">
-        <h3 class="font-heading text-sm text-cyber-primary tracking-wider mb-4">INFORMASI AKUN</h3>
+        <h3 class="font-semibold text-sm text-brand-primary tracking-wider mb-4">INFORMASI AKUN</h3>
         <form @submit.prevent="updateProfile" class="space-y-4">
           <div>
             <label class="label-cyber">Nama</label>
@@ -27,7 +27,7 @@
 
       <!-- Change Password -->
       <div class="cyber-card">
-        <h3 class="font-heading text-sm text-cyber-primary tracking-wider mb-4">UBAH PASSWORD</h3>
+        <h3 class="font-semibold text-sm text-brand-primary tracking-wider mb-4">UBAH PASSWORD</h3>
         <form @submit.prevent="changePassword" class="space-y-4">
           <div>
             <label class="label-cyber">Password Lama</label>
@@ -50,15 +50,15 @@
 
     <!-- Account Info -->
     <div class="cyber-card mt-6">
-      <h3 class="font-heading text-sm text-cyber-primary tracking-wider mb-4">INFO SISTEM</h3>
+      <h3 class="font-semibold text-sm text-brand-primary tracking-wider mb-4">INFO SISTEM</h3>
       <div class="grid grid-cols-2 gap-4 text-sm">
         <div>
-          <p class="text-cyber-muted">User ID</p>
-          <p class="text-cyber-text font-mono">{{ auth.user?.id }}</p>
+          <p class="text-brand-muted">User ID</p>
+          <p class="text-brand-text font-mono">{{ auth.user?.id }}</p>
         </div>
         <div>
-          <p class="text-cyber-muted">Role</p>
-          <p class="text-cyber-text capitalize">{{ auth.user?.role?.replace('_', ' ') }}</p>
+          <p class="text-brand-muted">Role</p>
+          <p class="text-brand-text capitalize">{{ auth.user?.role?.replace('_', ' ') }}</p>
         </div>
       </div>
     </div>
@@ -114,5 +114,5 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.label-cyber { @apply block text-xs text-cyber-muted uppercase tracking-wider mb-1.5 font-heading; }
+.label-cyber { @apply block text-xs text-brand-muted uppercase tracking-wider mb-1.5 font-medium; }
 </style>

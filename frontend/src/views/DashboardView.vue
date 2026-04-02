@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="font-heading text-xl text-cyber-primary tracking-wider mb-6">DASHBOARD</h1>
+    <h1 class="font-semibold text-xl text-brand-primary mb-6">DASHBOARD</h1>
 
     <!-- Stats -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-6">
@@ -15,13 +15,13 @@
     <!-- Charts -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
       <div class="cyber-card">
-        <h3 class="font-heading text-sm text-cyber-primary tracking-wider mb-4">GRAFIK KONSELING PER BULAN</h3>
+        <h3 class="font-semibold text-sm text-brand-primary mb-4">GRAFIK KONSELING PER BULAN</h3>
         <div class="h-64">
           <BarChart :labels="konselingChartLabels" :values="konselingChartValues" label="Konseling" />
         </div>
       </div>
       <div class="cyber-card">
-        <h3 class="font-heading text-sm text-cyber-primary tracking-wider mb-4">PELANGGARAN PER TINGKAT</h3>
+        <h3 class="font-semibold text-sm text-brand-primary mb-4">PELANGGARAN PER TINGKAT</h3>
         <div class="h-64">
           <PieChart :labels="pelanggaranChartLabels" :values="pelanggaranChartValues" />
         </div>
@@ -30,23 +30,23 @@
 
     <!-- Recent Activity -->
     <div class="cyber-card">
-      <h3 class="font-heading text-sm text-cyber-primary tracking-wider mb-4">AKTIVITAS TERBARU</h3>
+      <h3 class="font-semibold text-sm text-brand-primary mb-4">AKTIVITAS TERBARU</h3>
       <div class="space-y-3">
-        <div v-for="item in recentActivity" :key="item.type + item.id" class="flex items-center gap-3 p-3 rounded-lg bg-cyber-bg/50 border border-cyber-border/30">
+        <div v-for="item in recentActivity" :key="item.type + item.id" class="flex items-center gap-3 p-3 rounded-lg bg-brand-bg/50 border border-brand-border/30">
           <span class="text-xl">{{ item.type === 'konseling' ? '💬' : '⚠️' }}</span>
           <div class="flex-1 min-w-0">
-            <p class="text-sm text-cyber-text truncate">
+            <p class="text-sm text-brand-text truncate">
               <span class="font-semibold">{{ item.siswa_nama }}</span>
-              <span class="text-cyber-muted"> ({{ item.nama_kelas }})</span>
+              <span class="text-brand-muted"> ({{ item.nama_kelas }})</span>
             </p>
-            <p class="text-xs text-cyber-muted">
+            <p class="text-xs text-brand-muted">
               {{ item.type === 'konseling' ? item.jenis_layanan : item.jenis_pelanggaran }}
               &mdash; {{ formatDate(item.tanggal) }}
             </p>
           </div>
-          <span class="text-xs text-cyber-muted">{{ item.guru_nama }}</span>
+          <span class="text-xs text-brand-muted">{{ item.guru_nama }}</span>
         </div>
-        <p v-if="recentActivity.length === 0" class="text-center text-cyber-muted py-4">Belum ada aktivitas</p>
+        <p v-if="recentActivity.length === 0" class="text-center text-brand-muted py-4">Belum ada aktivitas</p>
       </div>
     </div>
   </div>

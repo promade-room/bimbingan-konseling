@@ -4,28 +4,37 @@ export default {
   theme: {
     extend: {
       colors: {
-        cyber: {
-          bg: '#0a0a1a',
-          surface: '#111128',
-          card: '#1a1a3e',
-          primary: '#00f0ff',
-          secondary: '#ff00aa',
-          accent: '#f5f500',
-          success: '#00ff88',
-          danger: '#ff3366',
-          text: '#e0e0e0',
-          muted: '#8888aa',
-          border: '#2a2a5e'
+        brand: {
+          bg: '#f8fafc',
+          surface: '#ffffff',
+          card: '#ffffff',
+          primary: '#0891b2',
+          'primary-dark': '#0e7490',
+          'primary-light': '#cffafe',
+          secondary: '#059669',
+          'secondary-light': '#d1fae5',
+          accent: '#f59e0b',
+          'accent-light': '#fef3c7',
+          success: '#10b981',
+          danger: '#ef4444',
+          warning: '#f59e0b',
+          text: '#1e293b',
+          muted: '#64748b',
+          border: '#e2e8f0',
+          'border-dark': '#cbd5e1',
+          sidebar: '#0f172a',
+          'sidebar-text': '#cbd5e1',
+          'sidebar-active': '#0891b2'
         }
       },
       fontFamily: {
-        heading: ['Orbitron', 'sans-serif'],
-        body: ['Rajdhani', 'sans-serif']
+        heading: ['Inter', 'sans-serif'],
+        body: ['Inter', 'sans-serif']
       },
       boxShadow: {
-        neon: '0 0 5px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.2)',
-        'neon-pink': '0 0 5px rgba(255, 0, 170, 0.5), 0 0 20px rgba(255, 0, 170, 0.2)',
-        'neon-green': '0 0 5px rgba(0, 255, 136, 0.5), 0 0 20px rgba(0, 255, 136, 0.2)'
+        card: '0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)',
+        'card-hover': '0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04)',
+        sidebar: '0 0 15px rgba(0,0,0,0.1)'
       }
     }
   },

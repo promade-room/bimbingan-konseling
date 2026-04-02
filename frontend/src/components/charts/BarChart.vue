@@ -20,10 +20,10 @@ const chartData = computed(() => ({
   datasets: [{
     label: props.label,
     data: props.values,
-    backgroundColor: 'rgba(0, 240, 255, 0.3)',
-    borderColor: '#00f0ff',
+    backgroundColor: 'rgba(8, 145, 178, 0.7)',
+    borderColor: '#0891b2',
     borderWidth: 1,
-    borderRadius: 4
+    borderRadius: 6
   }]
 }))
 
@@ -31,11 +31,11 @@ const chartOptions = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
-    legend: { labels: { color: '#e0e0e0', font: { family: 'Rajdhani' } } }
+    legend: { labels: { color: '#64748b', font: { family: 'Inter' } } }
   },
   scales: {
-    x: { ticks: { color: '#8888aa' }, grid: { color: 'rgba(42, 42, 94, 0.3)' } },
-    y: { ticks: { color: '#8888aa' }, grid: { color: 'rgba(42, 42, 94, 0.3)' } }
+    x: { ticks: { color: '#94a3b8' }, grid: { color: '#f1f5f9' } },
+    y: { ticks: { color: '#94a3b8' }, grid: { color: '#f1f5f9' } }
   }
 }
 </script>

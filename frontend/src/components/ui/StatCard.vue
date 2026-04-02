@@ -1,14 +1,16 @@
 <template>
-  <div class="cyber-card group hover:shadow-neon transition-all duration-300 cursor-default">
+  <div class="cyber-card group hover:shadow-card-hover transition-all duration-200 cursor-default">
     <div class="flex items-start justify-between">
       <div>
-        <p class="text-xs text-cyber-muted uppercase tracking-wider font-heading">{{ title }}</p>
-        <p class="text-3xl font-heading text-cyber-text mt-2 group-hover:text-cyber-primary transition-colors">
+        <p class="text-xs text-brand-muted uppercase tracking-wider font-medium">{{ title }}</p>
+        <p class="text-2xl font-bold text-brand-text mt-1.5 group-hover:text-brand-primary transition-colors">
           {{ value }}
         </p>
-        <p v-if="subtitle" class="text-xs text-cyber-muted mt-1">{{ subtitle }}</p>
+        <p v-if="subtitle" class="text-xs text-brand-muted mt-1">{{ subtitle }}</p>
       </div>
-      <div class="text-3xl opacity-60 group-hover:opacity-100 transition-opacity">{{ icon }}</div>
+      <div class="w-10 h-10 rounded-xl bg-brand-primary/10 flex items-center justify-center text-lg">
+        {{ icon }}
+      </div>
     </div>
   </div>
 </template>

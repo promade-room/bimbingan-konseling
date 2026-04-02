@@ -2,110 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @layer base {
   * {
     scrollbar-width: thin;
-    scrollbar-color: #2a2a5e #0a0a1a;
+    scrollbar-color: #cbd5e1 #f1f5f9;
   }
   *::-webkit-scrollbar { width: 6px; }
-  *::-webkit-scrollbar-track { background: #0a0a1a; }
-  *::-webkit-scrollbar-thumb { background: #2a2a5e; border-radius: 3px; }
+  *::-webkit-scrollbar-track { background: #f1f5f9; }
+  *::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+  *::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 }
 
 @layer components {
   .cyber-card {
-    @apply bg-cyber-surface/80 backdrop-blur-md border border-cyber-border rounded-lg p-4;
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.05);
+    @apply bg-white border border-brand-border rounded-xl p-5 shadow-card;
   }
   .cyber-input {
-    @apply w-full bg-cyber-bg border border-cyber-border rounded-lg px-4 py-2.5 text-cyber-text placeholder-cyber-muted focus:outline-none focus:border-cyber-primary focus:shadow-neon transition-all duration-300;
+    @apply w-full bg-white border border-brand-border rounded-lg px-4 py-2.5 text-brand-text placeholder-brand-muted focus:outline-none focus:ring-2 focus:ring-brand-primary/30 focus:border-brand-primary transition-all duration-200 text-sm;
   }
   .cyber-btn {
-    @apply px-5 py-2.5 rounded-lg font-semibold tracking-wider uppercase text-sm transition-all duration-300 border;
+    @apply px-4 py-2.5 rounded-lg font-medium tracking-wide text-sm transition-all duration-200 inline-flex items-center gap-2;
   }
   .cyber-btn-primary {
-    @apply cyber-btn bg-cyber-primary/10 border-cyber-primary text-cyber-primary hover:bg-cyber-primary hover:text-cyber-bg;
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+    @apply cyber-btn bg-brand-primary text-white hover:bg-brand-primary-dark shadow-sm hover:shadow-md;
   }
   .cyber-btn-secondary {
-    @apply cyber-btn bg-cyber-secondary/10 border-cyber-secondary text-cyber-secondary hover:bg-cyber-secondary hover:text-white;
-    box-shadow: 0 0 10px rgba(255, 0, 170, 0.2);
+    @apply cyber-btn bg-brand-secondary text-white hover:bg-brand-secondary/90 shadow-sm;
   }
   .cyber-btn-success {
-    @apply cyber-btn bg-cyber-success/10 border-cyber-success text-cyber-success hover:bg-cyber-success hover:text-cyber-bg;
+    @apply cyber-btn bg-brand-success text-white hover:bg-brand-success/90 shadow-sm;
   }
   .cyber-btn-danger {
-    @apply cyber-btn bg-cyber-danger/10 border-cyber-danger text-cyber-danger hover:bg-cyber-danger hover:text-white;
+    @apply cyber-btn bg-brand-danger text-white hover:bg-brand-danger/90 shadow-sm;
   }
   .cyber-btn-ghost {
-    @apply cyber-btn bg-transparent border-cyber-border text-cyber-muted hover:border-cyber-primary hover:text-cyber-primary;
+    @apply cyber-btn bg-transparent border border-brand-border text-brand-muted hover:bg-brand-bg hover:text-brand-text;
   }
   .cyber-table {
     @apply w-full text-sm;
   }
   .cyber-table thead th {
-    @apply px-4 py-3 text-left text-cyber-primary/80 font-heading text-xs uppercase tracking-wider border-b border-cyber-border;
+    @apply px-4 py-3 text-left text-brand-muted font-semibold text-xs uppercase tracking-wider bg-brand-bg/50 border-b border-brand-border;
   }
   .cyber-table tbody td {
-    @apply px-4 py-3 border-b border-cyber-border/50;
+    @apply px-4 py-3 border-b border-brand-border/50 text-brand-text;
   }
   .cyber-table tbody tr:hover {
-    @apply bg-cyber-primary/5;
+    @apply bg-brand-primary-light/30;
   }
   .cyber-badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
   }
   .badge-ringan {
-    @apply cyber-badge bg-cyber-success/10 text-cyber-success border border-cyber-success/30;
+    @apply cyber-badge bg-emerald-50 text-emerald-700 border border-emerald-200;
   }
   .badge-sedang {
-    @apply cyber-badge bg-cyber-accent/10 text-cyber-accent border border-cyber-accent/30;
+    @apply cyber-badge bg-amber-50 text-amber-700 border border-amber-200;
   }
   .badge-berat {
-    @apply cyber-badge bg-cyber-danger/10 text-cyber-danger border border-cyber-danger/30;
+    @apply cyber-badge bg-red-50 text-red-700 border border-red-200;
   }
   .badge-selesai {
-    @apply cyber-badge bg-cyber-success/10 text-cyber-success border border-cyber-success/30;
+    @apply cyber-badge bg-emerald-50 text-emerald-700 border border-emerald-200;
   }
   .badge-tindak-lanjut {
-    @apply cyber-badge bg-cyber-accent/10 text-cyber-accent border border-cyber-accent/30;
+    @apply cyber-badge bg-amber-50 text-amber-700 border border-amber-200;
   }
-}
-
-/* Scanline effect */
-.scanlines::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 240, 255, 0.02) 2px,
-    rgba(0, 240, 255, 0.02) 4px
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Glitch text */
-@keyframes glitch {
-  0%, 100% { text-shadow: 2px 0 #ff00aa, -2px 0 #00f0ff; }
-  25% { text-shadow: -2px 0 #ff00aa, 2px 0 #00f0ff; }
-  50% { text-shadow: 2px 2px #ff00aa, -2px -2px #00f0ff; }
-  75% { text-shadow: -2px 2px #ff00aa, 2px -2px #00f0ff; }
-}
-
-.glitch-text:hover {
-  animation: glitch 0.3s ease-in-out;
 }
 
 /* Print styles */
 @media print {
   .no-print { display: none !important; }
   body { background: white; color: black; }
-  .cyber-card { border: 1px solid #ccc; box-shadow: none; background: white; }
+  .cyber-card { border: 1px solid #e2e8f0; box-shadow: none; background: white; }
 }

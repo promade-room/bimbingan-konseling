@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex items-center justify-between mb-6">
-      <h1 class="font-heading text-xl text-cyber-primary tracking-wider">DATA SISWA</h1>
+      <h1 class="font-semibold text-xl text-brand-primary tracking-wider">DATA SISWA</h1>
       <button v-if="canCreate" @click="openModal()" class="cyber-btn-primary">+ Tambah</button>
     </div>
 
@@ -19,8 +19,8 @@
         </template>
         <template #actions="{ row }">
           <div class="flex gap-2">
-            <button v-if="canCreate" @click="openModal(row)" class="text-cyber-primary hover:text-cyber-primary/80 text-xs">Edit</button>
-            <button v-if="canCreate" @click="handleDelete(row)" class="text-cyber-danger hover:text-cyber-danger/80 text-xs">Hapus</button>
+            <button v-if="canCreate" @click="openModal(row)" class="text-brand-primary hover:text-brand-primary/80 text-xs">Edit</button>
+            <button v-if="canCreate" @click="handleDelete(row)" class="text-brand-danger hover:text-brand-danger/80 text-xs">Hapus</button>
           </div>
         </template>
       </DataTable>
@@ -164,5 +164,5 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.label-cyber { @apply block text-xs text-cyber-muted uppercase tracking-wider mb-1.5 font-heading; }
+.label-cyber { @apply block text-xs text-brand-muted uppercase tracking-wider mb-1.5 font-medium; }
 </style>

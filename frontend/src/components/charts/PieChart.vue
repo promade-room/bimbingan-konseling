@@ -18,9 +18,9 @@ const chartData = computed(() => ({
   labels: props.labels,
   datasets: [{
     data: props.values,
-    backgroundColor: ['#00ff88', '#f5f500', '#ff3366'],
-    borderColor: '#0a0a1a',
-    borderWidth: 2
+    backgroundColor: ['#10b981', '#f59e0b', '#ef4444'],
+    borderColor: '#ffffff',
+    borderWidth: 3
   }]
 }))
 
@@ -28,7 +28,7 @@ const chartOptions = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
-    legend: { position: 'bottom', labels: { color: '#e0e0e0', font: { family: 'Rajdhani' }, padding: 16 } }
+    legend: { position: 'bottom', labels: { color: '#64748b', font: { family: 'Inter' }, padding: 16 } }
   }
 }
 </script>
