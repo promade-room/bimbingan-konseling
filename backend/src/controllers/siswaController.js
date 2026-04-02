@@ -24,7 +24,7 @@ exports.getAll = async (req, res) => {
       params.push(kelas_id);
     }
 
-    const countQuery = query.replace('SELECT s.*, k.nama_kelas, k.tingkat', 'SELECT COUNT(*) as total');
+    const countQuery = `SELECT COUNT(*) as total FROM siswa s JOIN kelas k ON s.kelas_id = k.id WHERE 1=1${query.substring(query.indexOf('WHERE 1=1') + 9)}`;
     const [countResult] = await db.query(countQuery, params);
     const total = countResult[0].total;
 

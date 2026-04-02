@@ -17,7 +17,7 @@ exports.getAll = async (req, res) => {
     }
 
     // Count total
-    const countQuery = query.replace('SELECT id, nama, email, role, foto, created_at', 'SELECT COUNT(*) as total');
+    const countQuery = `SELECT COUNT(*) as total FROM users WHERE 1=1${query.substring(query.indexOf('WHERE 1=1') + 9)}`;
     const [countResult] = await db.query(countQuery, params);
     const total = countResult[0].total;
 

@@ -27,7 +27,7 @@ exports.getAll = async (req, res) => {
     if (tanggal_dari) { query += ' AND ks.tanggal >= ?'; params.push(tanggal_dari); }
     if (tanggal_sampai) { query += ' AND ks.tanggal <= ?'; params.push(tanggal_sampai); }
 
-    const countQuery = query.replace(/SELECT .*? FROM/, 'SELECT COUNT(*) as total FROM');
+    const countQuery = `SELECT COUNT(*) as total FROM konseling ks JOIN siswa s ON ks.siswa_id = s.id JOIN kelas k ON s.kelas_id = k.id JOIN users u ON ks.guru_bk_id = u.id WHERE 1=1${query.substring(query.indexOf('WHERE 1=1') + 9)}`;
     const [countResult] = await db.query(countQuery, params);
     const total = countResult[0].total;
 

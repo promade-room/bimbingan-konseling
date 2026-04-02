@@ -15,7 +15,7 @@ exports.getAll = async (req, res) => {
     if (tanggal_dari) { query += ' AND tanggal_surat >= ?'; params.push(tanggal_dari); }
     if (tanggal_sampai) { query += ' AND tanggal_surat <= ?'; params.push(tanggal_sampai); }
 
-    const countQuery = query.replace('SELECT *', 'SELECT COUNT(*) as total');
+    const countQuery = `SELECT COUNT(*) as total FROM surat_keluar WHERE 1=1${query.substring(query.indexOf('WHERE 1=1') + 9)}`;
     const [countResult] = await db.query(countQuery, params);
     const total = countResult[0].total;
 
