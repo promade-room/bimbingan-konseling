@@ -1,4 +1,15 @@
-node_modules/
-dist/
+# Environment
 .env
+
+# Dependencies
+node_modules/
+
+# Uploads
+uploads/
+
+# Logs
 *.log
+
+# OS
+.DS_Store
+Thumbs.db

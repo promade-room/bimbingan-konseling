@@ -63,9 +63,13 @@ exports.update = async (req, res) => {
     const id = req.params.id;
 
     if (req.file) {
+      const uploadDir = path.join(__dirname, '..', 'uploads');
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true });
+      }
       const [old] = await db.query('SELECT file FROM surat_keluar WHERE id = ?', [id]);
       if (old[0]?.file) {
-        const oldPath = path.join(__dirname, '..', 'uploads', old[0].file);
+        const oldPath = path.join(uploadDir, old[0].file);
         if (fs.existsSync(oldPath)) fs.unlinkSync(oldPath);
       }
     }
@@ -90,9 +94,13 @@ exports.update = async (req, res) => {
 
 exports.remove = async (req, res) => {
   try {
+    const uploadDir = path.join(__dirname, '..', 'uploads');
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
+    }
     const [rows] = await db.query('SELECT file FROM surat_keluar WHERE id = ?', [req.params.id]);
     if (rows[0]?.file) {
-      const filePath = path.join(__dirname, '..', 'uploads', rows[0].file);
+      const filePath = path.join(uploadDir, rows[0].file);
       if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
     }
     await db.query('DELETE FROM surat_keluar WHERE id = ?', [req.params.id]);
