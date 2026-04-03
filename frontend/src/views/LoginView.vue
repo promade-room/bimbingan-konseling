@@ -28,10 +28,6 @@
             {{ loading ? 'Memproses...' : 'Masuk' }}
           </button>
         </form>
-
-        <div class="mt-6 text-center text-xs text-brand-muted bg-brand-bg rounded-lg py-2.5 px-4">
-          Default: admin@konseling.com / admin123
-        </div>
       </div>
     </div>
   </div>
