@@ -179,10 +179,12 @@ async function handleDelete(row) {
 }
 
 onMounted(async () => {
-  const [kelasRes, siswaRes] = await Promise.all([api.get('/kelas'), api.get('/siswa', { params: { limit: 1000 } })])
-  kelasList.value = kelasRes.data
-  siswaList.value = siswaRes.data.data || siswaRes.data
   fetchData()
+  try {
+    const [kelasRes, siswaRes] = await Promise.all([api.get('/kelas'), api.get('/siswa', { params: { limit: 1000 } })])
+    kelasList.value = kelasRes.data
+    siswaList.value = siswaRes.data.data || siswaRes.data
+  } catch {}
 })
 </script>
 

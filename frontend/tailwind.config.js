@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         brand: {
-          bg: '#f8fafc',
+          bg: '#f1f5f9',
           surface: '#ffffff',
           card: '#ffffff',
           primary: '#0891b2',
@@ -19,11 +19,12 @@ export default {
           danger: '#ef4444',
           warning: '#f59e0b',
           text: '#1e293b',
-          muted: '#64748b',
+          muted: '#475569',
+          'muted-light': '#64748b',
           border: '#e2e8f0',
           'border-dark': '#cbd5e1',
           sidebar: '#0f172a',
-          'sidebar-text': '#cbd5e1',
+          'sidebar-text': '#94a3b8',
           'sidebar-active': '#0891b2'
         }
       },

@@ -157,9 +157,11 @@ let searchTimeout = null
 const debouncedSearch = () => { clearTimeout(searchTimeout); searchTimeout = setTimeout(() => fetchData(), 300) }
 
 onMounted(async () => {
-  const { data: kelas } = await api.get('/kelas')
-  kelasList.value = kelas
   fetchData()
+  try {
+    const { data: kelas } = await api.get('/kelas')
+    kelasList.value = kelas
+  } catch {}
 })
 </script>
 

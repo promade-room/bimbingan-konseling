@@ -157,15 +157,17 @@ async function handleDelete(row) {
 }
 
 onMounted(async () => {
-  const [kelasRes, siswaRes, jenisRes] = await Promise.all([
-    api.get('/kelas'),
-    api.get('/siswa', { params: { limit: 1000 } }),
-    api.get('/jenis-pelanggaran')
-  ])
-  kelasList.value = kelasRes.data
-  siswaList.value = siswaRes.data.data || siswaRes.data
-  jenisList.value = jenisRes.data
   fetchData()
+  try {
+    const [kelasRes, siswaRes, jenisRes] = await Promise.all([
+      api.get('/kelas'),
+      api.get('/siswa', { params: { limit: 1000 } }),
+      api.get('/jenis-pelanggaran')
+    ])
+    kelasList.value = kelasRes.data
+    siswaList.value = siswaRes.data.data || siswaRes.data
+    jenisList.value = jenisRes.data
+  } catch {}
 })
 </script>
 

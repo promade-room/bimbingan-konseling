@@ -140,12 +140,14 @@ async function handleDelete(row) {
 }
 
 onMounted(async () => {
-  const { data: users } = await api.get('/users', { params: { role: 'guru_bk', limit: 100 } })
-  guruList.value = users.data || []
-  // also load wali_kelas
-  const { data: wali } = await api.get('/users', { params: { role: 'wali_kelas', limit: 100 } })
-  guruList.value = [...guruList.value, ...(wali.data || [])]
   fetchData()
+  // Load guru list only for admin (user endpoint is admin-only)
+  try {
+    const { data: users } = await api.get('/users', { params: { role: 'guru_bk', limit: 100 } })
+    guruList.value = users.data || []
+    const { data: wali } = await api.get('/users', { params: { role: 'wali_kelas', limit: 100 } })
+    guruList.value = [...guruList.value, ...(wali.data || [])]
+  } catch { /* non-admin won't have access, that's fine */ }
 })
 </script>
 
