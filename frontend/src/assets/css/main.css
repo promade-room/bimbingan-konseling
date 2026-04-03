@@ -20,7 +20,7 @@
     @apply bg-white border border-brand-border rounded-xl p-5 shadow-card;
   }
   .cyber-input {
-    @apply w-full bg-white border border-brand-border rounded-lg px-4 py-2.5 text-brand-text placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-primary/30 focus:border-brand-primary transition-all duration-200 text-sm;
+    @apply w-full bg-white border border-brand-border rounded-lg px-4 py-2.5 text-brand-text placeholder-brand-muted focus:outline-none focus:ring-2 focus:ring-brand-primary/30 focus:border-brand-primary transition-all duration-200 text-sm;
   }
   .cyber-btn {
     @apply px-4 py-2.5 rounded-lg font-medium tracking-wide text-sm transition-all duration-200 inline-flex items-center gap-2;
@@ -38,13 +38,13 @@
     @apply cyber-btn bg-brand-danger text-white hover:bg-brand-danger/90 shadow-sm;
   }
   .cyber-btn-ghost {
-    @apply cyber-btn bg-transparent border border-brand-border text-slate-500 hover:bg-brand-bg hover:text-brand-text;
+    @apply cyber-btn bg-transparent border border-brand-border text-brand-muted hover:bg-brand-bg hover:text-brand-text;
   }
   .cyber-table {
     @apply w-full text-sm;
   }
   .cyber-table thead th {
-    @apply px-4 py-3 text-left text-slate-500 font-semibold text-xs uppercase tracking-wider bg-brand-bg/50 border-b border-brand-border;
+    @apply px-4 py-3 text-left text-brand-muted font-semibold text-xs uppercase tracking-wider bg-brand-bg/50 border-b border-brand-border;
   }
   .cyber-table tbody td {
     @apply px-4 py-3 border-b border-brand-border/50 text-brand-text;
